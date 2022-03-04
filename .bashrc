@@ -21,12 +21,15 @@ alias tt="vim $TMUX_CONFIG"
 # movement shortcuts
 alias pb="cd ~/ansible/playbooks"
 alias ah="cd /home/kgdsyssvc/svn/kgainey/playbooks/ad-hoc/"
-alias ansm="cd /home/kgdsyssvc/svn/kgainey/ansible/"
+alias ansm="cd /home/kgdsyssvc/svn/ansible/master"
 alias ansp="cd /home/kgdsyssvc/svn/ansible/playbooks"
 
 # .bashrc related
 alias erc="vim ~/.bashrc"
 alias src=". ~/.bashrc"
+
+alias tree="tree -C -L 4"
+alias lll="ll"
 
 function sshsesh {
   eval $(ssh-agent -s)
