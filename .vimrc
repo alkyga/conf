@@ -10,6 +10,7 @@
 "           https://github.com/amix/vimrc
 "
 " Sections:
+"    -> Plugins
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -31,11 +32,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'https://github.com/etdev/vim-hexcolor.git'
+Plug 'etdev/vim-hexcolor.git'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "" Nerdtree
-" https://github.com/preservim/nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 " Start NERDTree when Vim is started without file arguments.
@@ -51,7 +52,11 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 set nu rnu
-nnoremap <C-n> :set nu! rnu!<CR>
+let g:indentLine_char = '⦙'
+nnoremap <leader>n :set nu! rnu!<CR>
+nnoremap <leader>vs :source ~/.vimrc<CR>
+nnoremap <leader>ve :split ~/.vimrc<CR>
+set splitright splitbelow
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -69,7 +74,7 @@ au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
