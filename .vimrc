@@ -30,11 +30,26 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'etdev/vim-hexcolor.git'
+"Plug 'etdev/vim-hexcolor.git'
 Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/AutoComplPop'
 call plug#end()
+
+" YAML formatting fixes (polyglot)
+let g:ansible_unindent_after_newline = 1
+let g:ansible_attribute_highlight = "ab"
+let g:ansible_name_highlight = 'd'
+
+" Enable Builtin Man Plugin
+runtime ftplugin/man.vim
+" Set shift+k to open :Man
 
 "" Nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -49,13 +64,14 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => KG Custom
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nu rnu
+let mapleader = " "
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
-set nu rnu
 let g:indentLine_char = '⦙'
 nnoremap <leader>n :set nu! rnu!<CR>
 nnoremap <leader>vs :source ~/.vimrc<CR>
-nnoremap <leader>ve :split ~/.vimrc<CR>
+nnoremap <leader>vv :split ~/.vimrc<CR>
 set splitright splitbelow
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -87,7 +103,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
+" Set 10 lines to the cursor - when moving vertically using j/k
 set so=10
 
 " Avoid garbled characters in Chinese language windows OS

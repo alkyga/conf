@@ -9,7 +9,12 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+
+# vi/vim related
 set -o vi
+alias view="vim -R"
+alias vi="vim"
+alias vv="vim ~/.vimrc"
 
 # tmux related
 TMUX_CONFIG="~/.config/tmux/.tmux.conf"
@@ -23,12 +28,14 @@ alias pb="cd ~/ansible/playbooks"
 alias ah="cd /home/kgdsyssvc/svn/kgainey/playbooks/ad-hoc/"
 alias ansm="cd /home/kgdsyssvc/svn/ansible/master"
 alias ansp="cd /home/kgdsyssvc/svn/ansible/playbooks"
+alias kgd="cd /home/kgdsyssvc/svn/kgainey/docs; ll"
 
 # .bashrc related
-alias erc="vim ~/.bashrc"
-alias src=". ~/.bashrc"
+alias bb="vim ~/.bashrc"
+alias bbb=". ~/.bashrc"
 
 alias tree="tree -C -L 4"
+alias less="less -R"
 alias lll="ll"
 
 function sshsesh {
@@ -41,3 +48,10 @@ fixssh() {
 }
 
 PS1="\[\033[37m\][\D{%Y%m%d:%H%M%S}|\u@\h|$(/usr/bin/tty | /bin/sed -e 's:/dev/::')] \w\n-> \[\033[00m\]"
+
+# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#   ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+# fi
+# if [[ ! "$SSH_AUTH_SOCK" ]]; then
+#   source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+# fi
