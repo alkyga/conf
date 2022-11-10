@@ -36,11 +36,11 @@ set completeopt=menuone,longest
 set shortmess+=c
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-"Plug 'etdev/vim-hexcolor.git'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-scripts/AutoComplPop'
+Plug 'flazz/vim-colorschemes'
 call plug#end()
+
 
 " YAML formatting fixes (polyglot)
 let g:ansible_unindent_after_newline = 1
@@ -72,7 +72,20 @@ let g:indentLine_char = '⦙'
 nnoremap <leader>n :set nu! rnu!<CR>
 nnoremap <leader>vs :source ~/.vimrc<CR>
 nnoremap <leader>vv :split ~/.vimrc<CR>
+nnoremap <leader>w :set wrap!<CR>
+nnoremap <leader>o o<ESC>k
+nnoremap <leader>O O<ESC>j
+
 set splitright splitbelow
+
+function! Toggle_syntax()
+    if &syntax == "on"
+        set syntax=off
+    else
+        set syntax=on
+    endif
+endfunction
+map <leader>c :call Toggle_syntax()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -93,7 +106,7 @@ au FocusGained,BufEnter * checktime
 let mapleader = " "
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>W :w!<cr>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -185,13 +198,26 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
+set t_Co=256
 
-try
-    colorscheme desert
-catch
-endtry
+" Force this
 
+" set background=light
 set background=dark
+" colorscheme ego
+colorscheme elda
+
+"try
+    " colorscheme seoul256-light
+    " colorscheme badwolf
+    " colorscheme mellow
+    " colorscheme hybrid-light
+    " colorscheme busierbee
+    " colorscheme caramel
+"    colorscheme dw_green
+"catch
+"endtry
+
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -236,7 +262,8 @@ set tw=500
 
 set ai "Auto indent
 "set si "Smart indent
-set wrap "Wrap lines
+"set wrap "Wrap lines
+set nowrap "don't wrap lines
 
 
 """"""""""""""""""""""""""""""
@@ -321,10 +348,10 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 "map 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <M-j> mz:m+<cr>`z
+" nmap <M-k> mz:m-2<cr>`z
+" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
@@ -368,10 +395,10 @@ map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+" map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+" map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
