@@ -39,6 +39,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 call plug#end()
 
 
@@ -75,6 +76,8 @@ nnoremap <leader>vv :split ~/.vimrc<CR>
 nnoremap <leader>w :set wrap!<CR>
 nnoremap <leader>o o<ESC>k
 nnoremap <leader>O O<ESC>j
+inoremap jk <ESC>
+inoremap kj <ESC>
 
 set splitright splitbelow
 
@@ -117,7 +120,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 10 lines to the cursor - when moving vertically using j/k
-set so=10
+set so=3
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
@@ -205,7 +208,8 @@ set t_Co=256
 " set background=light
 set background=dark
 " colorscheme ego
-colorscheme elda
+" colorscheme elda
+colorscheme spaceduck
 
 "try
     " colorscheme seoul256-light
@@ -271,16 +275,20 @@ set nowrap "don't wrap lines
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+"vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+"vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+"vnoremap # :'<,'>s/^/#<cr>
+"vnoremap <silent> # :'<,'>s/^/#<cr>
+"vnoremap <silent> ##  :'<,'>s/^#/<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
+"map <space> /
+"map <C-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
