@@ -39,7 +39,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
-Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'rafi/awesome-vim-colorschemes'
+
 call plug#end()
 
 
@@ -74,8 +75,10 @@ nnoremap <leader>n :set nu! rnu!<CR>
 nnoremap <leader>vs :source ~/.vimrc<CR>
 nnoremap <leader>vv :split ~/.vimrc<CR>
 nnoremap <leader>w :set wrap!<CR>
+nnoremap <leader>y :%s/\t/  /g<CR>
 nnoremap <leader>o o<ESC>k
 nnoremap <leader>O O<ESC>j
+nnoremap <tab> I  <ESC>
 inoremap jk <ESC>
 inoremap kj <ESC>
 
@@ -207,9 +210,19 @@ set t_Co=256
 
 " set background=light
 set background=dark
-" colorscheme ego
-" colorscheme elda
-colorscheme spaceduck
+" colorscheme mopkai
+" colorscheme moriarty
+" colorscheme mustang
+" colorscheme neverland-darker
+colorscheme oxeded
+" colorscheme mojave
+" colorscheme oceanic_material
+" colorscheme hemisu
+" colorscheme spacecamp
+" colorscheme tango2
+" colorscheme mophiaDark
+" colorscheme corn
+" colorscheme mohammad
 
 "try
     " colorscheme seoul256-light
