@@ -68,7 +68,8 @@ PROMPT_COMMAND='PS1X=$(p="${PWD#${HOME}}"; [ "${PWD}" != "${p}" ] && printf "~";
 
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[34m\]\[\D{%Y%m%d:%H%M%S}\[\033[37m\]|\[\033[31m\]${PS1X}\[\033[37m\]|${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\$ '
+    PS1='\[\033[34m\]\[\D{%Y%m%d:%H%M%S}\[\033[37m\]|\[\033[31m\]${PS1X}\[\033[37m\]|${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\'
+    PS1=${PS1}\n'$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
