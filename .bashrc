@@ -1,7 +1,7 @@
 # .bashrc
 
-export EDITOR="nvim"
-export SVN_EDITOR="nvim"
+export EDITOR="vim"
+export SVN_EDITOR="vim"
 export PYTHONPATH="$HOME/.config/python"
 
 # Source global definitions
@@ -38,7 +38,8 @@ alias wtf=dump_mvmt_aliases
 alias view="vim -R"
 alias vi="$EDITOR"
 alias vim="$EDITOR"
-alias vv="vim ~/.config/nvim/init.vim"
+#alias vv="vim ~/.config/nvim/init.vim"
+alias vv="vim ~/.vimrc"
 
 # tmux related
 TMUX_CONFIG="~/.config/tmux/.tmux.conf"
@@ -68,8 +69,8 @@ PROMPT_COMMAND='PS1X=$(p="${PWD#${HOME}}"; [ "${PWD}" != "${p}" ] && printf "~";
 
 color_prompt=yes
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[34m\]\[\D{%Y%m%d:%H%M%S}\[\033[37m\]|\[\033[31m\]${PS1X}\[\033[37m\]|${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\'
-    PS1=${PS1}\n'$ '
+    PS1='\[\033[34m\]\[\D{%Y%m%d:%H%M%S}\[\033[37m\]|${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]|\[\033[31m\]${PS1X}\[\033[37m\] '
+    PS1=${PS1}\\n'$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

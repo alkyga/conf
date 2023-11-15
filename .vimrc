@@ -36,10 +36,12 @@ set completeopt=menuone,longest
 set shortmess+=c
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -92,6 +94,8 @@ function! Toggle_syntax()
     endif
 endfunction
 map <leader>c :call Toggle_syntax()<CR>
+"let g:airline_theme='murmur'
+let g:airline_theme='luna'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -191,7 +195,7 @@ if has("gui_macvim")
 endif
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -201,41 +205,24 @@ set foldcolumn=1
 syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+"if $COLORTERM == 'gnome-terminal'
+"    set t_Co=256
+"endif
 set t_Co=256
 
 " Force this
 
 " set background=light
 set background=dark
-" colorscheme mopkai
-" colorscheme moriarty
-" colorscheme mustang
 " colorscheme neverland-darker
-colorscheme oxeded
-" colorscheme mojave
-" colorscheme oceanic_material
-" colorscheme hemisu
-" colorscheme spacecamp
-" colorscheme tango2
-" colorscheme mophiaDark
-" colorscheme corn
-" colorscheme mohammad
-
-"try
-    " colorscheme seoul256-light
-    " colorscheme badwolf
-    " colorscheme mellow
-    " colorscheme hybrid-light
-    " colorscheme busierbee
-    " colorscheme caramel
-"    colorscheme dw_green
-"catch
-"endtry
-
-
+" colorscheme oxeded
+" colorscheme xoria256
+" colorscheme vorange
+" colorscheme wombat256dave
+" colorscheme obsidian2
+colorscheme penultimate
+" colorscheme wombat256mod
+  
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
